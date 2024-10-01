@@ -1,0 +1,238 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #000;
+    color: #fff;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #1d1e22;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+}
+
+header .logo {
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #ff6347;
+}
+
+/* Motion Background */
+.motion-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-color: #000;
+    background-image: url('microscopic-pattern.png'), url('nanotubes.png');
+    background-position: center, left;
+    background-size: cover;
+    background-blend-mode: overlay;
+    overflow: hidden;
+}
+
+.motion-background::before,
+.motion-background::after {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 1%, transparent 1%);
+    background-size: 30px 30px;
+    animation: moveParticles 10s linear infinite;
+}
+
+.motion-background::after {
+    background: linear-gradient(45deg, rgba(0, 255, 255, 0.1), transparent);
+    animation-duration: 15s;
+    animation-direction: reverse;
+}
+
+@keyframes moveParticles {
+    from {
+        transform: translateY(0) translateX(0);
+    }
+    to {
+        transform: translateY(-100px) translateX(100px);
+    }
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    padding-top: 80px;
+    background: linear-gradient(145deg, #0f0f10 0%, #212529 100%);
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 5px #00f0f0;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.cta-btn {
+    padding: 15px 30px;
+    background-color: #ff6347;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: #e04e36;
+}
+
+/* Info Section (Initially Hidden) */
+#info-section {
+    display: none;
+    padding: 50px 20px;
+    background-color: #1e1f23;
+}
+
+.info-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.info-container h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #00f0f0;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.trend {
+    margin-bottom: 30px;
+}
+
+.trend-image {
+    width: 50%; /* Responsive image size */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Space between image and text */
+    border-radius: 8px; /* Optional: add rounded corners */
+}
+
+.trend h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ff6347;
+    font-family: 'Roboto', sans-serif;
+}
+
+.trend p {
+    font-size: 18px;
+    color: #aaa;
+}
+
+/* Footer */
+footer {
+    background-color: #1d1e22;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+/* Animation */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .cta-btn {
+        padding: 12px 24px;
+    }
+
+    .info-container h2 {
+        font-size: 28px; /* Smaller font for mobile */
+    }
+
+    .trend h3 {
+        font-size: 20px; /* Smaller trend title */
+    }
+
+    .trend p {
+        font-size: 16px; /* Smaller trend paragraph */
+    }
+}
